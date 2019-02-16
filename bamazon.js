@@ -1,5 +1,5 @@
 var mysql = require("mysql");
-// var inquirer = require('inquirer');
+var inquirer = require('inquirer');
 
 var connection = mysql.createConnection({
  host: "localhost",
@@ -16,12 +16,34 @@ var connection = mysql.createConnection({
 });
 connection.connect(function(err) {
    if (err) throw err;
-   console.log("connected as id " + connection.threadId);
- 
- });
+
+});
+
  connection.query('SELECT * FROM products', (err,rows) => {
     if(err) throw err;
-  
-    console.log('Data received from Db:\n');
+    start();
+   
     console.log(rows);
+   
+ 
   });
+
+  function start() {
+    // prompt for info about the item being put up for auction
+    inquirer
+      .prompt([
+        {
+          name: "item",
+          type: "input",
+          message: "ID of product you want to buy?"
+        },
+        {
+          name: "category",
+          type: "input",
+          message: "How many would you like?"
+        },
+        
+      ])
+    }
+    start();
+ 
