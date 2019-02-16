@@ -38,20 +38,32 @@ customerOrder(res);
 var customerOrder = function (res){
 inquirer
        .prompt([{
-               name: "item",
-               type: "input",
-               message: "ID of product you want to buy?"
+        type: "input",
+        name: "name",
+        message: "What would you like to buy? "
+    
            },
          {
-                name: "howMany",
-                type: "input",
-                message: "How many would you like?"
-                
+            type: "input",
+            name: "name",
+            message: "How many do you wan to buy?"
           },
 
         ])
- }
 
+ .then(function(user) {
 
+  
+
+  console.log(user.name);
+  
+    })
+  
+}
+//take in user input 
+
+//compare to mysql databas = stockqunaity 
+
+//
 
 // Once the customer has placed the order, your application should check if your store has enough of the product to meet the customer's request.
