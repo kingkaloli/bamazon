@@ -42,24 +42,28 @@ inquirer
         name: "name",
         message: "What would you like to buy? "
     
-           },
-         {
-            type: "input",
-            name: "name",
-            message: "How many do you wan to buy?"
-          },
+       }])
+       .then(function(answer){
+         var correct= false;
+         for(var i=0; i<res.legth; i++){
+          if (res[i].productname==answer.choice) {
+            correct=true;
+            var product=answer.choice;
+            var id=i;
+          }
+         }
+        })
+      }
 
-        ])
-
- .then(function(user) {
+//  .then(function(user) {
 
   
 
-  console.log(user.name);
+//   console.log(user.name);
   
-    })
+//     })
   
-}
+
 //take in user input 
 
 //compare to mysql databas = stockqunaity 
