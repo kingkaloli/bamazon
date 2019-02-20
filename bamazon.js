@@ -35,19 +35,19 @@ var purchaseTable = function () {
 
 var promptCustomer = function (res) {
   inquirer.prompt([{
-    type: 'input',
-    name: 'choice',
+    type: "input",
+    name: "choice",
     message: "what do you want to buy? "
   }]).then(function (answer) {
-    var correct = false;
+    var correct  = false;
     for (var i = 0; i < res.length; i++) {
       if (res[i].productname== answer.choice) {
         correct = true;
         var product = answer.choice;
         var id = i;
         inquirer.prompt({
-          type: 'input',
-          name: 'quant',
+          type: "input",
+          name: "quant",
           message: "How many dude?  ",
           validate: function (value) {
             if (isNaN(value) == false) {
@@ -56,12 +56,13 @@ var promptCustomer = function (res) {
               return false;
             }
           }
+      
         }).then(function (answer){
           if((res[id].stockquanity-answer.quant)>0){
-            connection.query("UPDATE products SET stockquanity='"+(res[id].stockquanity-answer.quant)+ "'+ WHERE productname='"+product+"'",function (err, res2){
+            connection.query("UPDATE products SET stockquanity = stockquanity - ? WHERE itemid = ?", [stockquanity, product.itemid],function (err, res2){
             console.log("You got it bro!");
-                purchaseTable()
-
+                purchaseTable();
+               
               })
 
           } else {
