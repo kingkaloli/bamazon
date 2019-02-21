@@ -47,6 +47,16 @@ var purchaseTable = function () {
     
   
   }
+    var addInv= function () {
+    connection.query("select * FROM products where stockquanity < 3", function (err, res) {
+      if (err) throw err
+      console.table(res)
+     
+    
+    })
+    
+  
+  }
 
 
 
@@ -68,6 +78,18 @@ var purchaseTable = function () {
         }
         if (answer.manager === "View Low Inventory" ) {
             lowInv()
+
+ 
+        }
+        if (answer.manager ===  "Add to Inventory") {
+            inquirer.prompt([{
+                type: 'input',
+                name: 'choice',
+                message: "What item ID Boss Man?",
+                validate: function (val) {
+             
+                }
+              }])
 
  
         }
