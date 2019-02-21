@@ -34,8 +34,22 @@ var purchaseTable = function () {
      
     
     })
+    
   
   }
+  var lowInv= function () {
+    connection.query("select * FROM products where stockquanity < 3", function (err, res) {
+      if (err) throw err
+      console.table(res)
+     
+    
+    })
+    
+  
+  }
+
+
+
 
     inquirer
       .prompt({
@@ -52,7 +66,10 @@ var purchaseTable = function () {
             purchaseTable()
           
         }
+        if (answer.manager === "View Low Inventory" ) {
+            lowInv()
 
+ 
+        }
     
     })
-   
