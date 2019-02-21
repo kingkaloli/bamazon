@@ -1,3 +1,4 @@
+require ('dotenv').config()
 var mysql = require("mysql");
 var inquirer = require('inquirer');
 var console_table = require('console.table')
@@ -12,7 +13,7 @@ var connection = mysql.createConnection({
   user: "root",
 
   // password
-  password: "rootLola",
+  password: process.env.password,
   database: "bamazonDB"
 })
 
