@@ -20,12 +20,7 @@ var connection = mysql.createConnection({
 connection.connect(function (err) {
   if (err) throw err;
   
-
-
 })
-
-
-
 
 var purchaseTable = function () {
     connection.query("SELECT * FROM products", function (err, res) {
@@ -34,34 +29,23 @@ var purchaseTable = function () {
      
     
     })
-    
-  
+ 
   }
   var lowInv= function () {
     connection.query("select * FROM products where stockquanity < 3", function (err, res) {
       if (err) throw err
       console.table(res)
-     
-    
-    })
-    
   
-  }
+    })
+ }
     var addInv= function () {
     connection.query("select * FROM products where stockquanity < 3", function (err, res) {
       if (err) throw err
       console.table(res)
-     
-    
-    })
-    
-  
+  })
+ 
   }
-
-
-
-
-    inquirer
+ inquirer
       .prompt({
         name: "manager",
         type: "list",
@@ -94,15 +78,20 @@ var purchaseTable = function () {
               .then(function (val) {
                 var choice= parseInt(val.choice)
                 console.log(choice);
-                //console.log(product.stockquantity)
-                //console.log(answer.quant)
-               
-              })
+                inquirer.prompt([{
+                    type: 'input',
+                    name: 'choiceNum',
+                    message: "How many?",
+                    validate: function (val) {
+                        return val > 0 || val.toLowerCase() === 'c'
+                      }
+                    
+                  }])
+                  .then(function (val) {
+                    var choiceNum= parseInt(val.choiceNum)
+                    console.log(choiceNum);
+                  })
+                   })
             }
-            
-          
-
- 
-     
+ })
     
-    })
