@@ -87,11 +87,22 @@ var purchaseTable = function () {
                 name: 'choice',
                 message: "What item ID Boss Man?",
                 validate: function (val) {
-             
-                }
+                    return val > 0 || val.toLowerCase() === 'c'
+                  }
+                
               }])
+              .then(function (val) {
+                var choice= parseInt(val.choice)
+                console.log(choice);
+                //console.log(product.stockquantity)
+                //console.log(answer.quant)
+               
+              })
+            }
+            
+          
 
  
-        }
+     
     
     })
