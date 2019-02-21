@@ -1,0 +1,23 @@
+{
+  "name": "bamazon",
+  "version": "1.0.0",
+  "description": "It's Bamazon!",
+  "main": "bamazon2.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kingkaloli/bamazon.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kingkaloli/bamazon/issues"
+  },
+  "homepage": "https://github.com/kingkaloli/bamazon#readme",
+  "dependencies": {
+    "dotenv": "^6.2.0"
+  }
+}
