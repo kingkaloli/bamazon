@@ -21,7 +21,7 @@ Bamazon2 is a basic app that tracks items a customer orders. The manager functio
 
 node bamazon2
 
-Once loaded you should see all the itmes in the store. 
+Once loaded you should see all the items in the store. 
 
 
 ##Then app will ask, what would you like to buy?:
